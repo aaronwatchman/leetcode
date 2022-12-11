@@ -1,0 +1,31 @@
+class Solution {
+    public boolean isPalindrome(int x) 
+    {
+        int reversed = 0; 
+        int xCopy = x; 
+        
+        if(x < 0)//negative numbers automatically are not palindrome
+        {
+            return false; 
+        }
+        else
+        {
+            while(xCopy != 0)//while loop reversed number in a copy called reversed
+            {
+                int digit = xCopy % 10; 
+                reversed = reversed * 10 + digit; 
+                
+                xCopy /= 10; 
+            }
+        }
+        
+        if(reversed == x)//if the number and the reversed are the same, return true. 
+        {
+            return true; 
+        }
+        else
+        {
+            return false; 
+        }
+    }
+}
