@@ -1,0 +1,21 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if(s.length() != t.length()) { //base case if both strings are not the same length
+            return false; 
+        }
+        //HashMap to store characters and how many times they appear
+        HashMap<Character, Integer> sCount = new HashMap<Character, Integer>(); 
+        HashMap<Character, Integer> tCount = new HashMap<Character, Integer>(); 
+        for(int i = 0; i < s.length(); i++) { //adds each character and frequency
+            sCount.merge(s.charAt(i), 1, Integer::sum);
+            tCount.merge(t.charAt(i), 1, Integer::sum); 
+        }
+        for(Character c : sCount.keySet()) { //iterates through each key (character) and checks if 
+            //frequency matches
+            if(!sCount.get(c).equals(tCount.get(c))) {
+                return false; 
+            }
+        }
+        return true; 
+    }
+}
