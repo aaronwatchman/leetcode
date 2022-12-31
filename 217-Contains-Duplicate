@@ -1,0 +1,17 @@
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        
+        //goes through each number and checks if the HashSet has that number
+        //if it does, return true. If not, add that number to the HashSet
+        //Iterate through until a duplicate is found, or if none found, return false.
+        
+        Set<Integer> dupes = new HashSet<Integer>(); //HashSet does not allow duplicates
+        for(int num : nums) { 
+            if(dupes.contains(num)) {
+                return true;     
+            }
+            dupes.add(num); 
+        }
+        return false; 
+    }
+}
